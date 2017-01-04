@@ -11,7 +11,7 @@ function ll1 () {
   </dev/null "$DIFF_CMD" &>/dev/null || DIFF_CMD=diff
 
   local JS_CMD='require("stdio-duplex/test/line-lengths.js")'
-  "$DIFF_CMD" -sU 2 --label 'expected' <(<<<'3 1 5' tr ' ' '\n'
+  "$DIFF_CMD" -sU 2 --label 'expected' <(printf '%s\n' 3 1 5
     ) --label 'actual output' <(
     <<<$'foo\n:\nHELLO' "$NODE_BIN" -e "$JS_CMD")
   return $?
