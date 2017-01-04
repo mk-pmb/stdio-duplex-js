@@ -1,0 +1,33 @@
+{ "name": "stdio-duplex",
+  "version": "0.1.0",
+  "description": "Factory function that returns a duplex stream made from process.std{in,out}.",
+  "keywords": [
+    "duplex",
+    "stdin",
+    "stdio",
+    "stdout",
+    "stream"
+  ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/stdio-duplex-js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/stdio-duplex-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/stdio-duplex-js/issues"
+  },
+
+  "private": false, "license": "ISC",
+
+  "main": "stdio-duplex.js",
+  "scripts": { "test": "bash test/ll1.sh" },
+  "directories": { "test": "test" },
+
+  "dependencies": { "duplexer": "^0.1.1" },
+  "devDependencies": { "split2": "^2.1.1" },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
