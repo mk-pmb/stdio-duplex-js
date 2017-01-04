@@ -1,5 +1,5 @@
 { "name": "stdio-duplex",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Factory function for duplex streams made from process.std{in,out}.",
   "keywords": [
     "duplex",
@@ -28,6 +28,10 @@
   "dependencies": {
     "duplexer": "^0.1.1",
     "split2": "^2.1.1"
+  },
+  "devDependencies": {
+    "equal-pmb": "^0.1.2",
+    "through2": "^2.0.3"
   },
 
 

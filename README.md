@@ -12,9 +12,9 @@ Factory function for duplex streams made from process.std{in,out}.
 Usage
 -----
 
-from [test/line-lengths.js](test/line-lengths.js):
+from [doc/examples/line-lengths.js](doc/examples/line-lengths.js):
 
-<!--#include file="test/line-lengths.js" start="  //#u" stop="  //#r"
+<!--#include file="doc/examples/line-lengths.js" start="  //#u" stop="  //#r"
   outdent="  " code="javascript" -->
 <!--#verbatim lncnt="6" -->
 ```javascript
@@ -32,8 +32,11 @@ Options
 The factory function takes an optional options object
 which supports these settings:
 
-  * `err`: (bool) Send output to stderr instead of stdout.
-  * `lines`: (bool) Split stdin into lines.
+  * `end`: (bool) Whether to end stdout when stdin ends. Default: `false`
+    * NB: Trying to `.end()` the original ("real") stdout will most probably
+      fail with `Error: process.stdout cannot be closed.`
+  * `err`: (bool) Send output to stderr instead of stdout. Default: `false`
+  * `lines`: (bool) Split stdin into lines. Default: `false`
 
 
 
