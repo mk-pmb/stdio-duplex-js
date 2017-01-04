@@ -5,7 +5,7 @@ stdio-duplex
 <!--/#echo -->
 
 <!--#echo json="package.json" key="description" -->
-Factory function that returns a duplex stream made from process.std{in,out}.
+Factory function for duplex streams made from process.std{in,out}.
 <!--/#echo -->
 
 
@@ -16,17 +16,26 @@ from [test/line-lengths.js](test/line-lengths.js):
 
 <!--#include file="test/line-lengths.js" start="  //#u" stop="  //#r"
   outdent="  " code="javascript" -->
-<!--#verbatim lncnt="9" -->
+<!--#verbatim lncnt="6" -->
 ```javascript
-var stdio = require('stdio-duplex')(),
-  lineSplitter = require('split2')(),
-  inLines = stdio.pipe(lineSplitter);
-
-inLines.on('data', function (chunk) {
-  stdio.write(String(chunk).length + '\n');
+var stdio = require('stdio-duplex')({ lines: true });
+stdio.on('data', function (oneLine) {
+  stdio.write(String(oneLine).length + '\n');
 });
 ```
 <!--/include-->
+
+
+Options
+-------
+
+The factory function takes an optional options object
+which supports these settings:
+
+  * `err`: (bool) Send output to stderr instead of stdout.
+  * `lines`: (bool) Split stdin into lines.
+
+
 
 
 

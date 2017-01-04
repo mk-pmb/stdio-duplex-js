@@ -2,15 +2,15 @@
 /* -*- tab-width: 2 -*- */
 'use strict';
 
-var duplexer = require('duplexer');
+var duplexer = require('duplexer'), makeLineSplitter = require('split2');
 
-function factory() {
-  return duplexer(process.stdout, process.stdin);
+function factory(opts) {
+  opts = (opts || false);
+  var src = process.stdin, dest = process.stdout;
+  if (opts.lines) { src = src.pipe(makeLineSplitter()); }
+  if (opts.err) { dest = process.stderr; }
+  return duplexer(dest, src);
 }
-
-factory.err = function () {
-  return duplexer(process.stderr, process.stdin);
-};
 
 
 module.exports = factory;

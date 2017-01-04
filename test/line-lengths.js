@@ -4,12 +4,9 @@
 
 (function readmeDemo() {
   //#u
-  var stdio = require('stdio-duplex')(),
-    lineSplitter = require('split2')(),
-    inLines = stdio.pipe(lineSplitter);
-
-  inLines.on('data', function (chunk) {
-    stdio.write(String(chunk).length + '\n');
+  var stdio = require('stdio-duplex')({ lines: true });
+  stdio.on('data', function (oneLine) {
+    stdio.write(String(oneLine).length + '\n');
   });
   //#r
 }());
